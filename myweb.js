@@ -8,28 +8,30 @@ const unmuted = document.getElementsByClassName("unmuted");
 const muted = document.getElementsByClassName("muted");
 
 nirvana.play();
+
 for (let i = 0; i < unmuted.length; i++) {
     unmuted[i].onclick = function() {
-        unmuted[i].style.display = "none";
-        muted[i].style.display = "block";
-        nirvana.pause();
+    unmuted[i].style.display = "none";
+    muted[i].style.display = "block";
+    nirvana.pause();
     };
 };
 for (let i = 0; i < unmuted.length; i++) {
     muted[i].onclick = function() {
-        muted[i].style.display = "none";       
-        unmuted[i].style.display= "block";
-        nirvana.play();
+    muted[i].style.display = "none";       
+    unmuted[i].style.display= "block";
+    nirvana.play();
     };
 };
 
 myButton1.onclick = function(){
-    nirvana.pause()
-    myButton1.remove()
-    setTimeout(() => {
+    nirvana.remove();
+    myButton1.remove();
+        setTimeout(() => {
         sound.play();
     }, 2600)
     setTimeout(() => {
+        nirvana.remove();
         scaryGif.style.display = "block";
         if(scaryGif.requestFullscreen){
             scaryGif.requestFullscreen()
